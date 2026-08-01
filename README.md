@@ -197,6 +197,26 @@ bazel test //tests/...
 Sbom was also tested by external tool
 https://sbomgenerator.com/tools/validator
 
+### Continuous integration
+
+Every pull request runs:
+
+| Workflow | Job | What it does |
+|---|---|---|
+| `tests.yml` | `unit_tests` | `bazel test //tests/...` |
+| `format.yml` | `formatting-check` | `//tools:format.check` (ruff, buildifier, yamlfmt) via `eclipse-score/cicd-workflows` |
+| `copyright.yml` | `copyright-check` | `//tools:copyright-check` via `eclipse-score/cicd-workflows` |
+
+Fix formatting and license headers locally with:
+
+```bash
+bazel run //tools:format.fix
+bazel run //tools:copyright-fix
+```
+
+The license header text comes from the shared `score_tooling` template, so it is
+identical to every other eclipse-score repository.
+
 #### Tests description
 
 | Test file | Bazel target | What it covers |

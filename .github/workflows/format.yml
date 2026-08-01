@@ -10,5 +10,18 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 # *******************************************************************************
-
-"""SBOM generator package."""
+name: Formatting checks
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  merge_group:
+    types: [checks_requested]
+permissions:
+  contents: read
+jobs:
+  # The target is passed explicitly because these live in //tools rather than in
+  # the root package - see tools/BUILD.bazel for why.
+  formatting-check:
+    uses: eclipse-score/cicd-workflows/.github/workflows/format.yml@c1c90b1a82a1fab0fc202979dde6686b2162d5a8
+    with:
+      bazel-target: test --test_output=errors //tools:format.check
