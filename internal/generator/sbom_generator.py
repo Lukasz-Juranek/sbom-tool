@@ -871,8 +871,8 @@ def deduplicate_components(components: list[dict[str, Any]]) -> list[dict[str, A
             # Keep the one with more information (non-unknown version preferred)
             existing = seen[name]
             if (
-                existing.get("version") == "unknown"
-                and comp.get("version") != "unknown"
+                existing.get("version") != "unknown"
+                and comp.get("version") == "unknown"
             ):
                 seen[name] = comp
             elif comp.get("license") and not existing.get("license"):

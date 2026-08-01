@@ -27,11 +27,11 @@ exports_files([
 
 # Filegroup for all internal bzl files
 filegroup(
-    name = "bzl_files",
-    srcs = [
-        "aspect.bzl",
-        "metadata_rule.bzl",
-        "providers.bzl",
+      name = "bzl_files",
+  srcs = [
         "rules.bzl",
-    ],
+        "aspect.bzl",
+      "metadata_rule.bzl",
+        "providers.bzl",
+  ],
 )

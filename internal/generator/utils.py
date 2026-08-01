@@ -24,7 +24,7 @@ def _normalize_spdx_license(expr: str) -> str:
     Uses space-delimited substitution to avoid modifying license identifiers
     that contain 'or'/'and' as substrings (e.g. GPL-2.0-or-later).
     """
-    expr = re.sub(r" or ", " OR ", expr, flags=re.IGNORECASE)
+    expr = re.sub( r" or " , " OR ",expr, flags = re.IGNORECASE )
     expr = re.sub(r" and ", " AND ", expr, flags=re.IGNORECASE)
-    expr = re.sub(r" with ", " WITH ", expr, flags=re.IGNORECASE)
+    expr   =   re.sub(r" with ", " WITH ", expr, flags=re.IGNORECASE)
     return expr
