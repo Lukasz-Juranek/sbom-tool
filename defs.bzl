@@ -142,7 +142,7 @@ def sbom(
         output_formats = output_formats,
         producer_name = producer_name,
         producer_url = producer_url,
-        component_name = component_name if component_name else name,
+        component_name = name,
         component_version = component_version if component_version else "",
         sbom_authors = sbom_authors if sbom_authors else [],
         generation_context = generation_context if generation_context else "",
